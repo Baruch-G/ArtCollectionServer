@@ -1,5 +1,4 @@
 using ArtCollectionApi.Models;
-using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace ArtCollectionApi.Services
@@ -8,27 +7,9 @@ namespace ArtCollectionApi.Services
     {
         private readonly IMongoCollection<User> _usersCollection;
 
-        public UsersService(
-            IOptions<ArtCollectionDatabaseSettings>
-            artCollectionDatabaseSettings
-        )
+        public UsersService(IMongoCollection<User> users)
         {
-            var mongoClient =
-                new MongoClient(artCollectionDatabaseSettings
-                        .Value
-                        .ConnectionString);
-
-            var mongoDatabase =
-                mongoClient
-                    .GetDatabase(artCollectionDatabaseSettings
-                        .Value
-                        .DatabaseName);
-
-            _usersCollection =
-                mongoDatabase
-                    .GetCollection<User>(artCollectionDatabaseSettings
-                        .Value
-                        .UsersCollectionName);
+            _usersCollection = users;
         }
 
         public async Task<List<User>> GetAsync() =>

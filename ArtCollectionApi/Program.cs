@@ -1,5 +1,6 @@
 using ArtCollectionApi.Models;
 using ArtCollectionApi.Services;
+using ArtCollectionApi;
 using Microsoft.AspNetCore.Cors;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,8 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<ArtCollectionDatabaseSettings>(
     builder.Configuration.GetSection("ArtCollectionDatabase"));
 
-builder.Services.AddSingleton<UsersService>();
-
+DBConfigSetUp.ConfigureServices(builder.Services, builder.Configuration.GetSection("ArtCollectionDatabase").Get<ArtCollectionDatabaseSettings>());
 
 builder.Services
     .AddCors(options =>
