@@ -1,5 +1,6 @@
 using ArtCollectionApi.Models;
 using ArtCollectionApi.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ArtCollectionApi.Controllers;
@@ -34,6 +35,7 @@ public class PrintsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Print newPrint)
     {
+        Console.WriteLine(newPrint);
         await _printsService.CreateAsync(newPrint);
 
         return CreatedAtAction(nameof(Get), new { id = newPrint.Id }, newPrint);

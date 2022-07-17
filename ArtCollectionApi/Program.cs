@@ -17,7 +17,7 @@ builder.Services
             .AddPolicy(name: "CorsPolicy",
             policy =>
             {
-                policy.WithOrigins("http://localhost:3001", "http://localhost:3000");
+                policy.WithOrigins("http://localhost:3001", "http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
             });
     });
 builder.Services.AddControllers();
@@ -26,7 +26,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
