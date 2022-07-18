@@ -17,7 +17,8 @@ builder.Services
             .AddPolicy(name: "CorsPolicy",
             policy =>
             {
-                policy.WithOrigins("http://localhost:3001", "http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+                policy.WithOrigins("http://localhost:3001", "http://localhost:3000", "https://art-collection-dev.herokuapp.com/", 
+                "https://art-collection-tatte.herokuapp.com/").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
             });
     });
 builder.Services.AddControllers();
