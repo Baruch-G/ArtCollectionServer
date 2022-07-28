@@ -15,6 +15,8 @@ namespace ArtCollectionApi.Models
         public string Notes {get; set;} = null!;
         public string AdditionalNotes {get; set;} = null!;
         public string[] Labels{get ; set;} = null!;
+        public string ImgUrl{get ; set;} = null!;
+        public string[] LinkedFiles{get ; set;} = null!;
         public string ArtistName {get; set;} = null!;
         public float HPGP {get; set;}
         public string Size {get; set;} = null!;

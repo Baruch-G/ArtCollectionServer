@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ArtCollectionApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("print-kinds")]
 public class PrintKindsController : ControllerBase
 {
     private readonly PrintKindsService _printKindsService;

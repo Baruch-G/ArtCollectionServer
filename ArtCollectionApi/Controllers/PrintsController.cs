@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ArtCollectionApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("prints")]
 public class PrintsController : ControllerBase
 {
     private readonly PrintsService _printsService;

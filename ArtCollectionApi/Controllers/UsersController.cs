@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ArtCollectionApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("users")]
 public class UsersController : ControllerBase
 {
     private readonly UsersService _usersService;
@@ -14,7 +14,7 @@ public class UsersController : ControllerBase
         _usersService = usersService;
     }
 
-     [HttpGet]
+    [HttpGet]
     public async Task<List<User>> Get() =>
         await _usersService.GetAsync();
 
