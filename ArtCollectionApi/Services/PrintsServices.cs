@@ -1,15 +1,18 @@
+using System.Linq;
 using ArtCollectionApi.Models;
 using MongoDB.Driver;
 
 namespace ArtCollectionApi.Services
 {
-    public class PrintsService      
+    public class PrintsService
     {
         private readonly IMongoCollection<Print> _printsCollection;
+
         public PrintsService(IMongoCollection<Print> prints)
         {
             _printsCollection = prints;
         }
+
         public async Task<List<Print>> GetAsync() =>
             await _printsCollection.Find(_ => true).ToListAsync();
 
@@ -25,6 +28,5 @@ namespace ArtCollectionApi.Services
 
         public async Task RemoveAsync(string id) =>
             await _printsCollection.DeleteOneAsync(x => x.Id == id);
-
     }
 }
