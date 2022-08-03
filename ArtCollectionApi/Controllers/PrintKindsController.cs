@@ -38,6 +38,17 @@ public class PrintKindsController : ControllerBase
 
         return CreatedAtAction(nameof(Get), new { id = newPrint.Id }, newPrint);
     }
+    
+    [HttpPost("many")]
+    public async Task<IActionResult> Post(List<PrintKind> prints)
+    {
+        foreach (var prt in prints)
+        {
+            await _printKindsService.CreateAsync(prt);
+        }
+
+        return NoContent();
+    }
 
     [HttpPut("{id:length(24)}")]
     public async Task<IActionResult> Update(string id, PrintKind updatedPrint)
