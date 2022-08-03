@@ -11,18 +11,18 @@ namespace ArtCollectionApi.Models
         public string EstimatedDate {get; set;} = null!;
         public string Title {get; set;} = null!;
         public string Source {get; set;} = null!;
-        public string References {get; set;} = null!;
-        public string Notes {get; set;} = null!;
-        public string AdditionalNotes {get; set;} = null!;
-        public string[] Labels{get ; set;} = null!;
-        public string ImgUrl{get ; set;} = null!;
-        public string[] LinkedFiles{get ; set;} = null!;
-        public string ArtistName {get; set;} = null!;
+        public string? References {get; set;} = null;
+        public string? Notes {get; set;} = null;
+        public string? AdditionalNotes {get; set;} = null;
+        public string[]? Labels{get ; set;} = null;
+        public string? ImgUrl{get ; set;} = null;
+        public string[]? LinkedFiles{get ; set;} = null;
+        public string? ArtistName {get; set;} = null;
         public float HPGP {get; set;}
-        public string Size {get; set;} = null!;
-        public string ImageSize {get; set;} = null!;
-        public string FrameSize{get; set;} = null!;
-        public string ExhibitionArea{get; set;} = null!;
+        public string? Size {get; set;} = null;
+        public string? ImageSize {get; set;}
+        public string? FrameSize{get; set;}
+        public string? ExhibitionArea{get; set;}
         public PrintKind? PrintKind {get;set;}
     }   
 }

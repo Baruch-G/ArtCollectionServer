@@ -41,6 +41,17 @@ public class PrintsController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = newPrint.Id }, newPrint);
     }
 
+    [HttpPost("many")]
+    public async Task<IActionResult> Post(List<Print> prints)
+    {
+        foreach (var prt in prints)
+        {
+            await _printsService.CreateAsync(prt);
+        }
+
+        return NoContent();
+    }
+
     [HttpPut("{id:length(24)}")]
     public async Task<IActionResult> Update(string id, Print updatedPrint)
     {
