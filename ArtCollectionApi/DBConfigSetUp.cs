@@ -19,7 +19,6 @@ namespace ArtCollectionApi
             var db = CreateMongoDatabase(settings);
             AddMongoDbService<  UsersService, User>(settings.UsersCollectionName);
             AddMongoDbService<  PrintsService, Print>(settings.PrintsCollectionName);
-            AddMongoDbService<  PrintKindsService, PrintKind>(settings.PrintKindsCollectionName);
             void AddMongoDbService<TService, TModel>(string collectionName)
             {
                 services.AddSingleton(db.GetCollection<TModel>(collectionName));
