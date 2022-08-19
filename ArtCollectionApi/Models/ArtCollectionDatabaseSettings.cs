@@ -6,6 +6,5 @@ namespace ArtCollectionApi.Models
         public string DatabaseName { get; set; } = null!;
         public string UsersCollectionName { get; set; } = null!;
         public string PrintsCollectionName {get; set;} = null!;
-        public string PrintKindsCollectionName {get; set;} = null!;
     }
 }

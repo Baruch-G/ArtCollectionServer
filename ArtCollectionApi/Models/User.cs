@@ -13,5 +13,7 @@ namespace ArtCollectionApi.Models
         public string Email {get; set;} = null!;
         public string Password {get; set;} = null!;
         public bool IsAdmin {get; set;}
+        public DateTime AccessExpirationDate {get; set;}
+        public DateTime CreationDate {get; set;}
     }
 }

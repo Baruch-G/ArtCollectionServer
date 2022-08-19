@@ -10,7 +10,9 @@ namespace ArtCollectionApi.Models
         public string? Id { get; set; }
         public string EstimatedDate {get; set;} = null!;
         public string Title {get; set;} = null!;
+        public string PrintKind {get;set;} = null!;
         public string Source {get; set;} = null!;
+        public DateTime LastUpdateTime {get; set;}
         public string? References {get; set;} = null;
         public string? Notes {get; set;} = null;
         public string? AdditionalNotes {get; set;} = null;
@@ -23,6 +25,5 @@ namespace ArtCollectionApi.Models
         public string? ImageSize {get; set;}
         public string? FrameSize{get; set;}
         public string? ExhibitionArea{get; set;}
-        public PrintKind? PrintKind {get;set;}
     }   
 }

@@ -15,9 +15,12 @@ public class PrintsController : ControllerBase
         _printsService = printsService;
     }
 
-     [HttpGet]
+    [HttpGet]
     public async Task<List<Print>> Get() =>
         await _printsService.GetAsync();
+
+    [HttpGet("{print-kinds}")]
+    public async Task<List<string>> GetPrintKinds() => await _printsService.GetPrintKindsAsync();
 
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<Print>> Get(string id)
@@ -83,5 +86,7 @@ public class PrintsController : ControllerBase
 
         return NoContent();
     }
+
+
 
 }
