@@ -19,8 +19,16 @@ public class PrintsController : ControllerBase
     public async Task<List<Print>> Get() =>
         await _printsService.GetAsync();
 
-    [HttpGet("{print-kinds}")]
+    [HttpGet("print-kinds")]
     public async Task<List<string>> GetPrintKinds() => await _printsService.GetPrintKindsAsync();
+
+    
+    [HttpGet("artists")]
+    public async Task<List<string>> GetArtists() => await _printsService.GetGetArtistsAsync();
+
+    
+    [HttpGet("sources")]
+    public async Task<List<string>> GetSources() => await _printsService.GetSourcesAsync();
 
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<Print>> Get(string id)

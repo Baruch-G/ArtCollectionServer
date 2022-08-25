@@ -17,15 +17,24 @@ namespace ArtCollectionApi.Services
         public async Task<List<Print>> GetAsync() =>
             await _printsCollection.Find(_ => true).ToListAsync();
 
-        public async Task<List<string>> GetPrintKindsAsync()
-        {
-            var fieldsBuilder = Builders<Print>.Projection;
-            var fields = fieldsBuilder.Include(d => d.PrintKind);
+        public async Task<List<string>> GetPrintKindsAsync() =>
+            await GetFielsListAsync("PrintKind");
 
+        public async Task<List<string>> GetGetArtistsAsync() =>
+            await GetFielsListAsync("ArtistName");
+
+        public async Task<List<string>> GetSourcesAsync() =>
+            await GetFielsListAsync("Source");
+
+        public async Task<List<string>> GetFielsListAsync(string field)
+        {
             return await _printsCollection
-                .Distinct<string>("PrintKind", new BsonDocument())
-                .ToListAsync(); //Find(_ => true).Project<Print>(fields).ToListAsync();
+                .Distinct<string>(field, new BsonDocument())
+                .ToListAsync();
         }
+
+        public ProjectionDefinitionBuilder<Print> PrintProjection() =>
+            Builders<Print>.Projection;
 
         public async Task<Print?> GetAsync(string id) =>
             await _printsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
